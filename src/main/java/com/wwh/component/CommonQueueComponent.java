@@ -54,6 +54,7 @@ public class CommonQueueComponent implements ApplicationContextAware {
             log.info("启动队列名为：{}的监听线程", queueName);
             while (true) {
                 try {
+                    T poll = blockingFairQueue.poll();
                     T t = blockingFairQueue.take();
                     //此处不提供多线程处理，自己决定是否开启多线程(业务中需要开启多线程话，建议使用线程池！！！)
                     queueConsumer.execute(t);
