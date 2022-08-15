@@ -7,5 +7,5 @@ public interface QueueConsumer<T> {
      *
      * @param t     具体任务参数
      */
-    void execute(T t);
+    void execute(T t) throws Exception;
 }

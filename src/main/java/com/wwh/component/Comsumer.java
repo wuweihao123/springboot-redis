@@ -12,7 +12,8 @@ import org.springframework.stereotype.Component;
 public class Comsumer implements QueueConsumer {
 
     @Override
-    public void execute(Object o) {
-        System.out.println(o);
+    public void execute(Object o) throws Exception{
+        Thread.sleep(2000);
+        System.out.println(System.currentTimeMillis()+"   "+o);
     }
 }
